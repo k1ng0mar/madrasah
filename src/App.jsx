@@ -972,7 +972,7 @@ function Pomodoro() {
 // ═══════════════════════════════════════════════════════════════
 
 const NAV = [
-  { id: "home",       icon: "⌂",  label: "Home"    },
+  { id: "home",       icon: "🙏🏼",  label: "Home"    },
   { id: "library",    icon: "📚", label: "Library" },
   { id: "plan",       icon: "🗓", label: "Plan"    },
   { id: "flashcards", icon: "🃏", label: "Cards"   },
