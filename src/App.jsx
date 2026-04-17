@@ -49,7 +49,7 @@ const C = {
 const GLOBAL_CSS = `@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;500;600;700&display=swap'); *{box-sizing:border-box;margin:0;padding:0} body{background:\( {C.bg};color: \){C.cream};font-family:'Nunito',sans-serif} ::-webkit-scrollbar{width:3px;height:3px} ::-webkit-scrollbar-track{background:transparent} ::-webkit-scrollbar-thumb{background:${C.border};border-radius:2px} textarea,input,select{outline:none;font-family:'Nunito',sans-serif} @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}} @keyframes fadeIn{from{opacity:0}to{opacity:1}} @keyframes spin{to{transform:rotate(360deg)}} @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}} @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}} .fade-up{animation:fadeUp 0.25s ease forwards} .fade-in{animation:fadeIn 0.2s ease forwards}`;
 
 // ═══════════════════════════════════════════════════════════════
-// STORAGE (fixed: uses localStorage instead of non-standard window.storage)
+// STORAGE
 // ═══════════════════════════════════════════════════════════════
 
 const DB = {
@@ -65,7 +65,7 @@ const DB = {
 };
 
 // ═══════════════════════════════════════════════════════════════
-// GROQ API
+// GROQ API (fixed spread operator)
 // ═══════════════════════════════════════════════════════════════
 
 async function groq(key, system, user, jsonMode = false) {
@@ -1004,8 +1004,7 @@ export default function App() {
     const script = document.createElement("script");
     script.src = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
     script.onload = () => {
-      window.pdfjsLib.GlobalWorkerOptions.workerSrc =
-        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
     };
     document.head.appendChild(script);
   }, []);
@@ -1039,7 +1038,6 @@ export default function App() {
 
   const title = PAGE_TITLE[page];
 
-  // Geometric pattern for header
   const headerPattern = `repeating-linear-gradient(45deg, ${C.border}22 0, ${C.border}22 1px, transparent 0, transparent 50%)`;
 
   return (
